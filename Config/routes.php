@@ -20,7 +20,7 @@
  * @since         CakePHP(tm) v 0.2.9
  * @license       MIT License (http://www.opensource.org/licenses/mit-license.php)
  */
-	Router::connect('/', array('controller' => 'posts', 'action' => 'latest'));
+	Router::connect('/', array('controller' => 'pages', 'action' => 'display', 'home'));
 	Router::connect('/posts', array('controller' => 'posts', 'action' => 'index'));
 	Router::connect('/posts/add', array('controller' => 'posts', 'action' => 'add'));
 	Router::connect('/posts/edit/*', array('controller' => 'posts', 'action' => 'edit'));

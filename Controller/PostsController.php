@@ -66,27 +66,6 @@ class PostsController extends AppController {
 	}
 	
 	/**
-	 * latest function.
-	 * 
-	 * @access public
-	 * @return void
-	 */
-	public function latest() {
-		$conditions =  array(
-			'Post.is_published' => 1
-		);
-		$post = $this->Post->find('first', array(
-			'conditions' => $conditions,
-			'order' => array(
-				'Post.publish_date' => 'DESC'
-			)
-		));
-		$title_for_layout = $post['Post']['title'];
-		$this->set(compact('post', 'title_for_layout'));
-		$this->render('view');
-	}
-	
-	/**
 	 * view function.
 	 * 
 	 * @access public

@@ -1,15 +1,6 @@
 <aside class="menu">
-	<h3>joeytrapp</h3>
+	<h3><?php echo $this->Html->link('joeytrapp', '/'); ?></h3>
 	<ul>
-		<li>
-			<?php echo $this->Html->link(
-				__('Latest'),
-				array(
-					'controller' => 'posts',
-					'action' => 'latest'
-				)
-			); ?>
-		</li>
 		<li>
 			<?php echo $this->Html->link(
 				__('Posts'),
@@ -24,6 +15,7 @@
 				<?php echo $this->Html->link(
 					__('New Post'),
 					array(
+						'controller' => 'posts',
 						'action' => 'add'
 					)
 				); ?>
@@ -39,21 +31,4 @@
 			</li>
 		<?php endif; ?>
 	</ul>
-	<?php if (count($recent)): ?>
-	<h3>recent</h3>
-	<ul>
-		<?php foreach ($recent as $post): ?>
-		<li>
-			<?php echo $this->Html->link(
-				__($post['Post']['title']),
-				array(
-					'controller' => 'posts',
-					'action' => 'view',
-					$post['Post']['slug']
-				)
-			); ?>
-		</li>
-		<?php endforeach; ?>
-	</ul>
-	<?php endif; ?>
 </aside>

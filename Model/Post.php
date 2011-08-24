@@ -48,20 +48,43 @@ class Post extends AppModel {
 					if (array_key_exists('post_file', $result[$type]) && !empty($result[$type]['post_file'])) {
 						$content = file_get_contents(APP . 'Posts' . DS . $result[$type]['post_file']);
 						$result[$type]['content'] = $content;
+						$result[$type]['description'] = $this->description($content);
 					} else {
-						$result[$type]['content'] = '';
+						$result[$type]['content'] = $result[$type]['description'] = '';
 					}
 				}
 			}
 		}
 		return $results;
 	}
+
+/**
+ * latest function.
+ *
+ * @access public
+ * @return array
+ */
+	public function latest($limit = 1) {
+		$posts = $this->find('all', array(
+			'conditions' => array(
+				'Post.is_published' => 1
+			),
+			'order' => array(
+				'Post.publish_date' => 'DESC'
+			),
+			'limit' => $limit
+		));
+		if (count($posts) === 1 && $limit === 1) {
+			$posts = $posts[0];
+		}
+		return $posts;
+	}
 	
 /**
  * recent function.
  * 
  * @access public
- * @return void
+ * @return array
  */
 	public function recent() {
 		return $this->find('all', array(
@@ -85,7 +108,7 @@ class Post extends AppModel {
 	public function description($content) {
 		App::import('Vendor', 'Markdown');
 		$ret = Markdown($content);
-		$ret = substr(strip_tags($ret), 0, 200);
+		$ret = substr(strip_tags($ret), 0, 300) . '...';
 		return $ret;
 	}
 	
