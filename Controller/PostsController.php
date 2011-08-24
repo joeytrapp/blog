@@ -1,0 +1,188 @@
+<?php
+
+class PostsController extends AppController {
+
+	public $name = 'Posts';
+	
+	public $helpers = array('Markdown', 'Time');
+	
+	/**
+	 * beforeFilter function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function beforeFilter() {
+		parent::beforeFilter();
+		$this->Auth->allow('index', 'latest', 'view');
+	}
+	
+	/**
+	 * beforeRender function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function beforeRender() {
+		parent::beforeRender();
+		if (
+			array_key_exists('post', $this->viewVars) &&
+			in_array($this->params['action'], array('latest', 'view'))
+		) {
+			/*$post = $this->viewVars['post'];
+			$this->Metadata->metadata('fb_url', array(
+				'property' => 'og:url',
+				'content' => Router::url(array('action' => 'view', $post['Post']['slug']), true),
+				'link' => false
+			));
+			$this->Metadata->metadata('title', $post['Post']['title']);
+			$this->Metadata->metadata('fb_title', array(
+				'property' => 'og:title',
+				'content' => $post['Post']['title']
+			));
+			$this->Metadata->metadata('fb_description', array(
+				'property' => 'og:description',
+				'content' => $this->Post->description($post['Post']['content'])
+			));*/
+		}
+	}
+	
+	/**
+	 * index function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function index() {
+		$paginate = array();
+		if (!$this->Auth->user()) {
+			$paginate['conditions'] = array(
+				'Post.is_published' => 1
+			);
+		}
+		$this->paginate = array_merge($paginate, array('order' => array('Post.publish_date' => 'DESC')));
+		$posts = $this->paginate();
+		$this->set(compact('posts'));
+	}
+	
+	/**
+	 * latest function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function latest() {
+		$conditions =  array(
+			'Post.is_published' => 1
+		);
+		$post = $this->Post->find('first', array(
+			'conditions' => $conditions,
+			'order' => array(
+				'Post.publish_date' => 'DESC'
+			)
+		));
+		$title_for_layout = $post['Post']['title'];
+		$this->set(compact('post', 'title_for_layout'));
+		$this->render('view');
+	}
+	
+	/**
+	 * view function.
+	 * 
+	 * @access public
+	 * @param mixed $slug (default: null)
+	 * @return void
+	 */
+	public function view($slug = null) {
+		if (!$slug) {
+			$this->redirect(array('action' => 'latest'));
+		}
+		$post = $this->Post->find('first', array(
+			'conditions' => array(
+				'Post.slug' => $slug
+			)
+		));
+		if (empty($post)) {
+			$this->redirect(array('action' => 'latest'));
+		}
+		$this->set(compact('post'));
+	}
+	
+	/**
+	 * add function.
+	 * 
+	 * @access public
+	 * @return void
+	 */
+	public function add() {
+		if (!empty($this->data)) {
+			$this->Post->create();
+			if ($this->Post->save($this->data)) {
+				$this->Session->setFlash(__('Post created.', true));
+				$post = $this->Post->read();
+				$this->redirect(array('action' => 'view', $post['Post']['slug']));
+			} else {
+				$this->Session->setFlash(__('Post failed.', true));
+			}
+		}
+		$posts = $this->Post->getList();
+		$parents = $this->Post->find('list');
+		$users = $this->Post->User->find('list');
+		$this->set(compact('parents', 'users', 'posts'));
+	}
+	
+	/**
+	 * edit function.
+	 * 
+	 * @access public
+	 * @param mixed $id (default: null)
+	 * @return void
+	 */
+	public function edit($id = null) {
+		if (!$id) {
+			$this->redirect(array('action' => 'index'));
+		}
+		if (!empty($this->request->data)) {
+			if ($this->Post->save($this->request->data)) {
+				$this->Session->setFlash(__('Post updated.', true));
+				$post = $this->Post->read();
+				$this->redirect(array('action' => 'view', $post['Post']['slug']));
+			} else {
+				$this->Session->setFlash(__('Post failed.', true));
+			}
+		} else {
+			$this->data = $this->Post->read(null, $id);
+		}
+		$parents = $this->Post->find('list', array(
+			'conditions' => array(
+				'NOT' => array(
+					'Post.id' => $id
+				)
+			)
+		));
+		$posts = $this->Post->getList();
+		$users = $this->Post->User->find('list');
+		$this->set(compact('parents', 'users', 'posts'));
+	}
+	
+	/**
+	 * delete function.
+	 * 
+	 * @access public
+	 * @param mixed $id (default: null)
+	 * @return void
+	 */
+	public function delete($id = null) {
+		if (!$id) {
+			$this->Session->setFlash(__('Invalid post id.', true));
+			$this->redirect(array('action' => 'index'));
+		}
+		if ($this->Post->delete($id)) {
+			$this->Session->setFlash(__('Post deleted.', true));
+		} else {
+			$this->Session->setFlash(__('Post did not delete.', true));
+		}
+		$this->redirect(array('action' => 'index'));
+	}
+
+}
