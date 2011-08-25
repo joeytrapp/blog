@@ -29,6 +29,7 @@ pre .tag .keyword {
 pre .string,
 pre .function .title,
 pre .class .title,
+pre .haskell .label,
 pre .ini .title,
 pre .tag .value,
 pre .css .rules .value,
@@ -80,6 +81,7 @@ pre .css .id,
 pre .phpdoc,
 pre .function .title,
 pre .class .title,
+pre .haskell .label,
 pre .vbscript .built_in,
 pre .sql .aggregate,
 pre .rsl .built_in,
@@ -95,9 +97,9 @@ pre .tex .command {
   font-weight: bold;
 }
 
-pre .html .css,
-pre .html .javascript,
-pre .html .vbscript,
+pre .xml .css,
+pre .xml .javascript,
+pre .xml .vbscript,
 pre .tex .formula {
   opacity: 0.8;
 }

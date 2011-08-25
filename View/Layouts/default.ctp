@@ -12,7 +12,7 @@
 	
 	<?php if (Configure::read('debug')): ?>
 		<?php echo $this->Html->css('style'); ?>
-		<?php echo $this->Html->css('/js/libs/highlight/styles/zenburn'); ?>
+		<?php echo $this->Html->css('highlight/zenburn'); ?>
 	<?php else: ?>
 		<?php echo $this->Html->css('application.0001'); ?>
 	<?php endif; ?>
@@ -30,40 +30,56 @@
 	<?php echo $scripts_for_layout; ?>
 </head>
 <body>
-	<div class="container">
-		<header class="header">
+	<div id="container" class="clearfix">
+		
+		<header class="header" role="banner">
 			
 		</header>
-		<div class="content">
+		
+		<div id="main" role="main">
 			<?php echo $this->Session->flash(); ?>
-			<section class="main">
-				<?php echo $content_for_layout; ?>
-			</section>
-			<?php echo $this->element('menu'); ?>
+			<?php echo $content_for_layout; ?>
 		</div>
+		
+		<aside id="menu">
+			<h3>joeytrapp</h3>
+			<?php echo $this->Html->link('Home', '/'); ?>
+			<?php echo $this->Html->link(
+				__('Posts'),
+				array(
+					'controller' => 'posts',
+					'action' => 'index'
+				)
+			); ?>
+			<?php if (AuthComponent::user()): ?>
+				<?php echo $this->Html->link(
+					__('New Post'),
+					array(
+						'controller' => 'posts',
+						'action' => 'add'
+					)
+				); ?>
+				<?php echo $this->Html->link(
+					__('Logout'),
+					array(
+						'controller' => 'users',
+						'action' => 'logout'
+					)
+				); ?>
+			<?php endif; ?>
+		</aside>
+		
 	</div>
+	
 	<footer class="footer">
-		<?php echo $this->Html->link(
-			__('Posts'),
-			array(
-				'controller' => 'posts',
-				'action' => 'index'
-			)
-		); ?>
-		<?php echo $this->Html->link(
-			__('Twitter'),
-			'http://twitter.com/#!/joeytrapp',
-			array('target' => '_blank')
-		); ?>
-		<?php echo $this->Html->link(
-			__('Loadsys'),
-			'http://loadsys.com',
-			array('target' => '_blank')
-		); ?>
+	
 	</footer>
+	
 	<script src="<?php echo Router::url('/js/script.js'); ?>" defer></script>
 	<script src="<?php echo Router::url('/js/plugins.js'); ?>" defer></script>
+	
 	<?php echo $this->element('sql_dump'); ?>
+	
 	<script>
 		var _gaq = _gaq || [];
 		_gaq.push(['_setAccount', 'UA-7217386-2']);

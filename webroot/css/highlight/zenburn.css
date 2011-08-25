@@ -5,7 +5,7 @@ based on dark.css by Ivan Sagalaev
 
 */
 
-pre {
+pre code {
   display: block; padding: 0.5em;
   background: #3F3F3F;
   color: #DCDCDC;
@@ -56,13 +56,15 @@ pre .ruby .subst {
 pre .dos .keyword,
 pre .python .decorator,
 pre .class .title,
+pre .haskell .label,
 pre .function .title,
 pre .ini .title,
 pre .diff .header,
 pre .ruby .class .parent,
 pre .apache .tag,
 pre .nginx .built_in,
-pre .tex .command {
+pre .tex .command,
+pre .input_number {
     color: #efef8f;
 }
 
@@ -104,8 +106,9 @@ pre .doctype {
   color: #7F9F7F;
 }
 
-pre .html .css,
-pre .html .javascript,
+pre .xml .css,
+pre .xml .javascript,
+pre .xml .vbscript,
 pre .tex .formula {
   opacity: 0.5;
 }

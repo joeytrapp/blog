@@ -67,7 +67,8 @@ pre .preprocessor,
 pre .userType,
 pre .apache .sqbracket,
 pre .nginx .built_in,
-pre .tex .special {
+pre .tex .special,
+pre .input_number {
   color: rgb(43, 145, 175);
 }
 
@@ -76,4 +77,8 @@ pre .javadoc,
 pre .xmlDocTag {
   color: rgb(128, 128, 128);
 }
+
+pre .vhdl .type { font-weight: bold; }
+pre .vhdl .string { color: #666666; }
+pre .vhdl .literal { color: rgb(163, 21, 21); }
 

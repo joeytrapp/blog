@@ -1,4 +1,5 @@
 <?php if (!empty($post)): ?>
+	<?php $this->set('title_for_layout', h($post['Post']['title'])); ?>
 	<article>
 		<h1><?php echo __($post['Post']['title']); ?></h1>
 		<p class="subinfo">

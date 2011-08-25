@@ -1,19 +1,9 @@
-/* 
- * HTML5 ✰ Boilerplate
- *
- * What follows is the result of much research on cross-browser styling. 
- * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
- * Kroc Camen, and the H5BP dev community and team.
- *
- * Detailed information about this CSS: h5bp.com/css
- * 
- * ==|== normalize ==========================================================
- */
-
-
-/* =============================================================================
-   HTML5 display definitions
-   ========================================================================== */
+$fontgrey: #363636;
+$fontlightgrey: #888888;
+$link: #990000;
+$linkhover: darken($link, 5%);
+$linkactive: darken($linkhover, 10%);
+$lightgrey: #eeeeee;
 
 article, aside, details, figcaption, figure, footer, header, hgroup, nav, section { display: block; }
 audio, canvas, video { display: inline-block; *display: inline; *zoom: 1; }
@@ -30,11 +20,11 @@ audio:not([controls]) { display: none; }
  * 3. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
  */
 
-html, body { height: 100%; }
+html, body { height: 100%; margin: 0; padding: 0; }
 
 html { font-size: 100%; overflow-y: scroll; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; margin: 0; padding: 0; }
 
-body { margin: 0; font-size: 13px; line-height: 1.231; padding: 0; background: #ffffff; }
+body { margin: 0; font-size: 13px; line-height: 1.231; padding: 0; background: #ffffff; font-family: Georgia, "Times New Roman", serif; font-size: 16px; color: $fontgrey; }
 
 body, button, input, select, textarea { font-family: sans-serif; color: #222; }
 
@@ -52,13 +42,11 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
    Links
    ========================================================================== */
 
-a { color: #00e; text-decoration: none; }
-a:visited { color: #551a8b; }
-a:hover { color: #06e; text-decoration: underline; }
-a:focus { outline: thin dotted; }
-
-/* Improve readability when focused and hovered in all browsers: h5bp.com/h */
-a:hover, a:active { outline: 0; }
+a { color: $link; text-decoration: none;
+	&:hover { color: $linkhover; text-decoration: underline; outline: 0; }
+	&:active { color: $linkactive; outline: 0; }
+	&:visited { color: $link; }
+}
 
 
 /* =============================================================================
@@ -137,7 +125,7 @@ form { margin: 0; }
 fieldset { border: 0; margin: 0; padding: 0; }
 
 /* Indicate that 'label' will shift focus to the associated form element */
-label { cursor: pointer; }
+label { cursor: pointer; font-size: 14px; padding: 0 5px 0 0; }
 
 /* 
  * 1. Correct color not inheriting in IE6/7/8/9 
@@ -181,6 +169,7 @@ button, input[type="button"], input[type="reset"], input[type="submit"] { cursor
 input[type="checkbox"], input[type="radio"] { box-sizing: border-box; }
 input[type="search"] { -webkit-appearance: textfield; -moz-box-sizing: content-box; -webkit-box-sizing: content-box; box-sizing: content-box; }
 input[type="search"]::-webkit-search-decoration { -webkit-appearance: none; }
+input[type="text"] { width: 310px; margin: 10px 20px 0 0; }
 
 /* 
  * Remove inner padding and border in FF3/4: h5bp.com/l 
@@ -193,7 +182,7 @@ button::-moz-focus-inner, input::-moz-focus-inner { border: 0; padding: 0; }
  * 2. Allow only vertical resizing
  */
 
-textarea { overflow: auto; vertical-align: top; resize: vertical; }
+textarea { overflow: auto; vertical-align: top; resize: vertical; width: 668px; height: 500px; font-size: 14px; padding: 5px; }
 
 /* Colors for form validity */
 input:valid, textarea:valid {  }
@@ -207,31 +196,24 @@ input:invalid, textarea:invalid { background-color: #f0dddd; }
 table { border-collapse: collapse; border-spacing: 0; }
 td { vertical-align: top; }
 
-
-/* ==|== primary styles =====================================================
-   Author: 
+/* =============================================================================
+   Headings
    ========================================================================== */
 
-$fontgrey: #363636;
-$fontlightgrey: #888888;
-$linkhover: #990000;
-$lightgrey: #eeeeee;
-
-html { margin: 0; padding: 0; } 
-body { font-family: Georgia, "Times New Roman", serif; font-size: 16px; color: $fontgrey; margin: 0; padding: 0; }
 h1 { font-size: 40px; padding: 0; margin: 16px 0 8px; }
 h2 { font-size: 32px; }
 h3 { font-size: 28px; }
 h4 { font-size: 24px; }
 h5 { font-size: 20px; }
 h6 { font-size: 16px; }
+
+
+/* ==|== primary styles =====================================================
+   Author: 
+   ========================================================================== */
+
 p { line-height: 1.5em;
 	&.subinfo { margin: 1em 0; padding: 0; font-size: 13px; color: $fontlightgrey; }
-}
-a { color: $fontgrey;
-	&:hover { color: $linkhover; }
-	&:active { color: darken($linkhover, 5%); }
-	&:visited { color: $fontgrey }
 }
 code { font-size: .9em; }
 pre { font-size: 12px; line-height: 1.2em; white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; }
@@ -240,26 +222,21 @@ pre { font-size: 12px; line-height: 1.2em; white-space: pre-wrap; white-space: -
 }
 
 /** layout **/
-.container { width: 900px; margin: 0 auto;
-	&:after { content: '.'; display: block; visibility: hidden; height: 0; clear:both; }
-}
-footer.footer { text-align: center; margin: 30px 0; 
+#container { width: 900px; margin: 0 auto; padding: 0 0 20px 0; }
+#footer { text-align: center; margin: 30px 0; 
 	a { padding: 5px 10px; }
 }
-.main { margin: 0; padding: 0 10px; width: 680px; float: left; }
+#main { margin: 0; padding: 0 10px; width: 680px; float: left; }
+h2 a, h3 a, h2 a:visited, h3 a:visited { color: $fontgrey; }
 .post { border-top: 1px solid $lightgrey; margin: 10px 0 10px 0; }
-.menu { margin: 0; padding: 0; width: 180px; float: right;
+#menu { margin: 0; padding: 0; width: 180px; float: right;
 	h3 { font-size: 20px; margin: 18px 0 5px; padding: 0 0 0 3px; }
-	ul { margin: 0; padding: 0; list-style: none; }
-	li { margin: 5px 0; padding: 0; }
-	a { display: block; padding: 3px;
-		&:hover { background: $lightgrey }
-		&:active { background: darken($lightgrey, 10%); }
+	a { display: block; padding: 3px; color: $fontgrey;
+		&:hover { background: $lightgrey; color: $linkhover; }
+		&:active { background: darken($lightgrey, 10%); color: $linkactive; }
+		&:visited { color: $fontgrey; }
 	}
 }
-input[type=text] { width: 310px; margin: 10px 20px 0 0; }
-label { font-size: 14px; padding: 0 5px 0 0; }
-textarea { width: 668px; height: 500px; font-size: 14px; padding: 5px; }
 
 /** Login **/
 .login { width: 400px; margin: 40px auto 80px; padding: 20px; border: 10px solid $lightgrey; 
@@ -271,7 +248,6 @@ textarea { width: 668px; height: 500px; font-size: 14px; padding: 5px; }
 	input[type=submit] { float: right; margin: 0 5px 0 0; }
 	label { font-size: 20px; display: block; }
 }
-.textile-quickref { display: none; font-size: 10px; line-height: 1.1em; }
 
 /* Positioning */
 
