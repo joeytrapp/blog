@@ -1,6 +1,9 @@
 <aside class="menu">
-	<h3><?php echo $this->Html->link('joeytrapp', '/'); ?></h3>
+	<h3>joeytrapp</h3>
 	<ul>
+		<li>
+			<?php echo $this->Html->link('Home', '/'); ?>
+		</li>
 		<li>
 			<?php echo $this->Html->link(
 				__('Posts'),
