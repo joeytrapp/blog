@@ -10,22 +10,14 @@
 	<title><?php echo $title_for_layout; ?> - Joey Trapp</title>
 	<?php echo $this->Html->meta('icon'); ?>
 	
-	<?php if (Configure::read('debug')): ?>
-		<?php echo $this->Html->css('style'); ?>
-		<?php echo $this->Html->css('highlight/zenburn'); ?>
-	<?php else: ?>
-		<?php echo $this->Html->css('application.0001'); ?>
-	<?php endif; ?>
-	
-	<?php if (Configure::read('debug')): ?>
-		<?php echo $this->Html->script('libs/jquery-1.6.2');	?>
-		<?php echo $this->Html->script('libs/underscore'); ?>
-		<?php echo $this->Html->script('libs/backbone'); ?>
-		<?php echo $this->Html->script('libs/modernizr-2.0.6.min.js'); ?>
-		<?php echo $this->Html->script('libs/highlight/highlight.pack'); ?>
-	<?php else: ?>
-		<?php echo $this->Html->script('application.0001'); ?>
-	<?php endif; ?>
+	<?php echo $this->Html->css('style'); ?>
+	<?php echo $this->Html->css('highlight/zenburn'); ?>
+			
+	<?php echo $this->Html->script('libs/jquery-1.6.2');	?>
+	<?php echo $this->Html->script('libs/underscore'); ?>
+	<?php echo $this->Html->script('libs/backbone'); ?>
+	<?php echo $this->Html->script('libs/modernizr-2.0.6.min.js'); ?>
+	<?php echo $this->Html->script('libs/highlight/highlight.pack'); ?>
 	
 	<?php echo $scripts_for_layout; ?>
 </head>
