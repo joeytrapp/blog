@@ -8,25 +8,28 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title><?php echo $title_for_layout; ?> - Joey Trapp</title>
-	<?php echo $this->Html->meta('icon'); ?>
+	<?php echo $this->Html->meta('icon'); ?>	
 	
-	<?php echo $this->Html->css('style'); ?>
-	<?php echo $this->Html->css('highlight/zenburn'); ?>
-			
-	<?php echo $this->Html->script('libs/jquery-1.6.2');	?>
-	<?php echo $this->Html->script('libs/underscore'); ?>
-	<?php echo $this->Html->script('libs/backbone'); ?>
-	<?php echo $this->Html->script('libs/modernizr-2.0.6.min.js'); ?>
-	<?php echo $this->Html->script('libs/highlight/highlight.pack'); ?>
+	<?php if (Configure::read('debug')): ?>
+		<?php echo $this->Html->css('style'); ?>
+		<?php echo $this->Html->css('highlight/zenburn'); ?>
+		<?php echo $this->Html->script('libs/jquery-1.6.2');	?>
+		<?php echo $this->Html->script('libs/underscore'); ?>
+		<?php echo $this->Html->script('libs/backbone'); ?>
+		<?php echo $this->Html->script('libs/modernizr-2.0.6.min.js'); ?>
+		<?php echo $this->Html->script('libs/highlight/highlight.pack'); ?>
+	<?php else: ?>
+		<?php echo $this->Html->css('application.css'); ?>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+		<?php echo $this->Html->script('libs/libs'); ?>
+	<?php endif; ?>
 	
 	<?php echo $scripts_for_layout; ?>
 </head>
 <body>
 	<div id="container" class="clearfix">
 		
-		<header class="header" role="banner">
-			
-		</header>
+		<?php /* <header class="header" role="banner"></header> */ ?>
 		
 		<div id="main" role="main">
 			<?php echo $this->Session->flash(); ?>
@@ -75,8 +78,12 @@
 	
 	</footer>
 	
-	<script src="<?php echo Router::url('/js/script.js'); ?>" defer></script>
-	<script src="<?php echo Router::url('/js/plugins.js'); ?>" defer></script>
+	<?php if (Configure::read('debug')): ?>
+		<script src="<?php echo Router::url('/js/script.js'); ?>" defer></script>
+		<script src="<?php echo Router::url('/js/plugins.js'); ?>" defer></script>
+	<?php else: ?>
+		<script src="<?php echo Router::url('/js/application.js'); ?>" defer></script>
+	<?php endif; ?>
 	
 	<?php echo $this->element('sql_dump'); ?>
 	
