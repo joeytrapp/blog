@@ -20,7 +20,6 @@
 		<?php echo $this->Html->script('libs/highlight/highlight.pack'); ?>
 	<?php else: ?>
 		<?php echo $this->Html->css('application.css'); ?>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
 		<?php echo $this->Html->script('libs/libs'); ?>
 	<?php endif; ?>
 	
