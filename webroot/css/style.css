@@ -434,6 +434,13 @@ h2 a, h3 a, h2 a:visited, h3 a:visited {
     font-size: 20px;
     display: block; }
 
+/** About Me **/
+.connor_photo {
+  height: 170px;
+  width: 144px;
+  margin: 10px 8px 8px;
+  border: #eeeeee 2px solid; }
+
 /* Positioning */
 .left {
   float: left; }
