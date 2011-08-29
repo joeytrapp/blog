@@ -1,7 +1,8 @@
 <?php if (count($posts)): ?>
+	<div class="lists">
 	<?php foreach($posts as $post): ?>
 		<article>
-			<h3>
+			<h2>
 				<?php echo $this->Html->link(
 					__($post['Post']['title'], true),
 					array(
@@ -12,7 +13,7 @@
 				<?php if (!$post['Post']['is_published']): ?>
 					<sup>(not published)</sup>
 				<?php endif; ?>
-			</h3>
+			</h2>
 			<p class="subinfo">
 				<?php echo date('m/d/Y', strtotime($post['Post']['publish_date'])); ?>
 				<?php if (AuthComponent::user()): ?>
@@ -37,6 +38,7 @@
 			<p><?php echo $post['Post']['description']; ?></p>
 		</article>
 	<?php endforeach; ?>
+	</div>
 <?php else: ?>
 	<p>No posts, sorry.</p>
 <?php endif; ?>

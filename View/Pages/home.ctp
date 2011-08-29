@@ -4,6 +4,7 @@
 
 <h4>Recent Articles</h4>
 
+<div class="lists">
 <?php $posts = ClassRegistry::init('Post')->latest(3); ?>
 <?php foreach ($posts as $post): ?>
 	<h2><?php echo $this->Html->link(
@@ -14,5 +15,9 @@
 			$post['Post']['slug']
 		)
 	); ?></h2>
+	<p class="subinfo">
+		<?php echo date('m/d/Y', strtotime($post['Post']['publish_date'])); ?>
+	</p>
 	<?php echo $post['Post']['description']; ?>
 <?php endforeach; ?>
+</div>

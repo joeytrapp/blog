@@ -213,7 +213,7 @@ h6 { font-size: 16px; }
    ========================================================================== */
 
 p { line-height: 1.5em;
-	&.subinfo { margin: 1em 0; padding: 0; font-size: 13px; color: $fontlightgrey; }
+	&.subinfo { margin: .5em 0 1em 0; padding: 0; font-size: 13px; color: $fontlightgrey; }
 }
 code { font-size: .9em; }
 pre { font-size: 12px; line-height: 1.2em; white-space: pre-wrap; white-space: -moz-pre-wrap !important; white-space: -pre-wrap; white-space: -o-pre-wrap; word-wrap: break-word; }
@@ -227,6 +227,7 @@ pre { font-size: 12px; line-height: 1.2em; white-space: pre-wrap; white-space: -
 	a { padding: 5px 10px; }
 }
 #main { margin: 0; padding: 0 10px; width: 680px; float: left; }
+.lists h2 { margin: 10px 0; }
 h2 a, h3 a, h2 a:visited, h3 a:visited { color: $fontgrey; }
 .post { border-top: 1px solid $lightgrey; margin: 10px 0 10px 0; }
 #menu { margin: 0; padding: 0; width: 180px; float: right;
