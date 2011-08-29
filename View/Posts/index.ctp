@@ -13,7 +13,6 @@
 					<sup>(not published)</sup>
 				<?php endif; ?>
 			</h3>
-			<p><?php echo $post['Post']['description']; ?></p>
 			<p class="subinfo">
 				<?php echo date('m/d/Y', strtotime($post['Post']['publish_date'])); ?>
 				<?php if (AuthComponent::user()): ?>
@@ -35,6 +34,7 @@
 					); ?>
 				<?php endif; ?>
 			</p>
+			<p><?php echo $post['Post']['description']; ?></p>
 		</article>
 	<?php endforeach; ?>
 <?php else: ?>
