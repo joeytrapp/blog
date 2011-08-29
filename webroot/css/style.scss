@@ -43,9 +43,9 @@ body, button, input, select, textarea { font-family: sans-serif; color: #222; }
    ========================================================================== */
 
 a { color: $link; text-decoration: none;
-	&:hover { color: $linkhover; text-decoration: underline; outline: 0; }
 	&:active { color: $linkactive; outline: 0; }
 	&:visited { color: $link; }
+	&:hover { color: $linkhover !important; text-decoration: underline; outline: 0; }
 }
 
 
@@ -230,7 +230,13 @@ pre { font-size: 12px; line-height: 1.2em; white-space: pre-wrap; white-space: -
 h2 a, h3 a, h2 a:visited, h3 a:visited { color: $fontgrey; }
 .post { border-top: 1px solid $lightgrey; margin: 10px 0 10px 0; }
 #menu { margin: 0; padding: 0; width: 180px; float: right;
-	h3 { font-size: 20px; margin: 18px 0 5px; padding: 0 0 0 3px; }
+	h3 { font-size: 20px; margin: 18px 0 5px; padding: 0 0 0 3px;
+		a { padding: 0;
+			&:hover { color: $linkhover; background: none; }
+			&:active { background: none; color: $linkactive; }
+			&:visited { color: $fontgrey; }
+		}
+	}
 	a { display: block; padding: 3px; color: $fontgrey;
 		&:hover { background: $lightgrey; color: $linkhover; }
 		&:active { background: darken($lightgrey, 10%); color: $linkactive; }

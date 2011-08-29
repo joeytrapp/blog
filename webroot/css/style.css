@@ -68,15 +68,15 @@ body, button, input, select, textarea {
 a {
   color: #990000;
   text-decoration: none; }
-  a:hover {
-    color: maroon;
-    text-decoration: underline;
-    outline: 0; }
   a:active {
     color: #4d0000;
     outline: 0; }
   a:visited {
     color: #990000; }
+  a:hover {
+    color: maroon !important;
+    text-decoration: underline;
+    outline: 0; }
 
 /* =============================================================================
    Typography
@@ -384,6 +384,16 @@ h2 a, h3 a, h2 a:visited, h3 a:visited {
     font-size: 20px;
     margin: 18px 0 5px;
     padding: 0 0 0 3px; }
+    #menu h3 a {
+      padding: 0; }
+      #menu h3 a:hover {
+        color: maroon;
+        background: none; }
+      #menu h3 a:active {
+        background: none;
+        color: #4d0000; }
+      #menu h3 a:visited {
+        color: #363636; }
   #menu a {
     display: block;
     padding: 3px;

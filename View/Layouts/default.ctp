@@ -34,8 +34,7 @@
 		</div>
 		
 		<aside id="menu">
-			<h3>joeytrapp</h3>
-			<?php echo $this->Html->link('Home', '/'); ?>
+			<h3><a href="/">joeytrapp</a></h3>
 			<?php echo $this->Html->link(
 				__('Posts'),
 				array(
@@ -43,6 +42,7 @@
 					'action' => 'index'
 				)
 			); ?>
+			<a href="/about">About Me</a>
 			<?php if (AuthComponent::user()): ?>
 				<?php echo $this->Html->link(
 					__('New Post'),
@@ -59,6 +59,14 @@
 					)
 				); ?>
 			<?php endif; ?>
+			
+			<h3>Me being social</h3>
+			<a href="http://twitter.com/#!/joeytrapp">@joeytrapp</a>
+			<a href="http://github.com/joeytrapp">joeytrapp on GitHub</a>
+			
+			<h3><a href="http://loadsys.com">Loadsys Web Strategies</a></h3>
+			<a href="http://twitter.com/#!/loadsys">@loadsys</a>
+			<a href="http://github.com/loadsys">Loadsys on GitHub</a>
 		</aside>
 		
 	</div>
