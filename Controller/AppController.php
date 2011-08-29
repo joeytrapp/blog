@@ -49,7 +49,6 @@ class AppController extends Controller {
 				)
 			)
 		);
-		$this->Auth->authorize = 'controller';
 		$this->Auth->allow('display');
 	}
 	
