@@ -1,6 +1,6 @@
 <h1>This page is about me.</h1>
 
-<?php echo $this->Html->image('about/born_awesome.jpg', array('class' => 'right connor_photo')); ?>
+<?php echo $this->Html->image('about/born_awesome.jpg', array('class' => 'right connor_photo', 'height' => 170, 'width' => 144)); ?>
 
 <p>Everything else here is technical, so I'll start out with something different. I'm a recently new father of a perfectly healthy boy. Connor Martin Trapp is his name, and he mostly just eats, sleeps, poops and cries. He's not very good at anything other than that yet.</p>
 
