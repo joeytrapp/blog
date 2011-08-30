@@ -1,757 +1,83 @@
-article, aside, details, figcaption, figure, footer, header, hgroup, nav, section {
-  display: block; }
 
-audio, canvas, video {
-  display: inline-block;
-  *display: inline;
-  *zoom: 1; }
-
-audio:not([controls]) {
-  display: none; }
-
-[hidden] {
-  display: none; }
-
-/* =============================================================================
-   Base
-   ========================================================================== */
-/*
- * 1. Correct text resizing oddly in IE6/7 when body font-size is set using em units
- * 2. Force vertical scrollbar in non-IE
- * 3. Prevent iOS text size adjust on device orientation change, without disabling user zoom: h5bp.com/g
- */
-html, body {
-  height: 100%;
-  margin: 0;
-  padding: 0; }
-
-html {
-  font-size: 100%;
-  overflow-y: scroll;
-  -webkit-text-size-adjust: 100%;
-  -ms-text-size-adjust: 100%;
-  margin: 0;
-  padding: 0; }
-
-body {
-  margin: 0;
-  font-size: 13px;
-  line-height: 1.231;
-  padding: 0;
-  background: #ffffff;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 16px;
-  color: #363636; }
-
-body, button, input, select, textarea {
-  font-family: sans-serif;
-  color: #222; }
-
-/* 
- * Remove text-shadow in selection highlight: h5bp.com/i
- * These selection declarations have to be separate
- * Also: hot pink! (or customize the background color to match your design)
- */
-::-moz-selection {
-  background: #fe57a1;
-  color: #fff;
-  text-shadow: none; }
-
-::selection {
-  background: #fe57a1;
-  color: #fff;
-  text-shadow: none; }
-
-/* =============================================================================
-   Links
-   ========================================================================== */
-a {
-  color: #990000;
-  text-decoration: none; }
-  a:active {
-    color: #4d0000;
-    outline: 0; }
-  a:visited {
-    color: #990000; }
-  a:hover {
-    color: maroon !important;
-    text-decoration: underline;
-    outline: 0; }
-
-/* =============================================================================
-   Typography
-   ========================================================================== */
-abbr[title] {
-  border-bottom: 1px dotted; }
-
-b, strong {
-  font-weight: bold; }
-
-blockquote {
-  margin: 1em 40px; }
-
-dfn {
-  font-style: italic; }
-
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #ccc;
-  margin: 1em 0;
-  padding: 0; }
-
-ins {
-  background: #ff9;
-  color: #000;
-  text-decoration: none; }
-
-mark {
-  background: #ff0;
-  color: #000;
-  font-style: italic;
-  font-weight: bold; }
-
-/* Redeclare monospace font family: h5bp.com/j */
-pre, code, kbd, samp {
-  font-family: monospace, monospace;
-  _font-family: 'courier new', monospace;
-  font-size: 1em; }
-
-/* Improve readability of pre-formatted text in all browsers */
-pre {
-  white-space: pre;
-  white-space: pre-wrap;
-  word-wrap: break-word; }
-
-q {
-  quotes: none; }
-
-q:before, q:after {
-  content: "";
-  content: none; }
-
-small {
-  font-size: 85%; }
-
-/* Position subscript and superscript content without affecting line-height: h5bp.com/k */
-sub, sup {
-  font-size: 75%;
-  line-height: 0;
-  position: relative;
-  vertical-align: baseline; }
-
-sup {
-  top: -0.5em; }
-
-sub {
-  bottom: -0.25em; }
-
-/* =============================================================================
-   Lists
-   ========================================================================== */
-ul, ol {
-  margin: 1em 0;
-  padding: 0 0 0 40px; }
-
-dd {
-  margin: 0 0 0 40px; }
-
-nav ul, nav ol {
-  list-style: none;
-  list-style-image: none;
-  margin: 0;
-  padding: 0; }
-
-/* =============================================================================
-   Embedded content
-   ========================================================================== */
-/*
- * 1. Improve image quality when scaled in IE7: h5bp.com/d
- * 2. Remove the gap between images and borders on image containers: h5bp.com/e 
- */
-img {
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-  vertical-align: middle; }
-
-/*
- * Correct overflow not hidden in IE9 
- */
-svg:not(:root) {
-  overflow: hidden; }
-
-/* =============================================================================
-   Figures
-   ========================================================================== */
-figure {
-  margin: 0; }
-
-/* =============================================================================
-   Forms
-   ========================================================================== */
-form {
-  margin: 0; }
-
-fieldset {
-  border: 0;
-  margin: 0;
-  padding: 0; }
-
-/* Indicate that 'label' will shift focus to the associated form element */
-label {
-  cursor: pointer;
-  font-size: 14px;
-  padding: 0 5px 0 0; }
-
-/* 
- * 1. Correct color not inheriting in IE6/7/8/9 
- * 2. Correct alignment displayed oddly in IE6/7 
- */
-legend {
-  border: 0;
-  *margin-left: -7px;
-  padding: 0; }
-
-/*
- * 1. Correct font-size not inheriting in all browsers
- * 2. Remove margins in FF3/4 S5 Chrome
- * 3. Define consistent vertical alignment display in all browsers
- */
-button, input, select, textarea {
-  font-size: 100%;
-  margin: 0;
-  vertical-align: baseline;
-  *vertical-align: middle; }
-
-/*
- * 1. Define line-height as normal to match FF3/4 (set using !important in the UA stylesheet)
- * 2. Correct inner spacing displayed oddly in IE6/7
- */
-button, input {
-  line-height: normal;
-  *overflow: visible; }
-
-/*
- * Reintroduce inner spacing in 'table' to avoid overlap and whitespace issues in IE6/7
- */
-table button, table input {
-  *overflow: auto; }
-
-/*
- * 1. Display hand cursor for clickable form elements
- * 2. Allow styling of clickable form elements in iOS
- */
-button, input[type="button"], input[type="reset"], input[type="submit"] {
-  cursor: pointer;
-  -webkit-appearance: button; }
-
-/*
- * Consistent box sizing and appearance
- */
-input[type="checkbox"], input[type="radio"] {
-  box-sizing: border-box; }
-
-input[type="search"] {
-  -webkit-appearance: textfield;
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
-  box-sizing: content-box; }
-
-input[type="search"]::-webkit-search-decoration {
-  -webkit-appearance: none; }
-
-input[type="text"] {
-  width: 310px;
-  margin: 10px 20px 0 0; }
-
-/* 
- * Remove inner padding and border in FF3/4: h5bp.com/l 
- */
-button::-moz-focus-inner, input::-moz-focus-inner {
-  border: 0;
-  padding: 0; }
-
-/* 
- * 1. Remove default vertical scrollbar in IE6/7/8/9 
- * 2. Allow only vertical resizing
- */
-textarea {
-  overflow: auto;
-  vertical-align: top;
-  resize: vertical;
-  width: 668px;
-  height: 500px;
-  font-size: 14px;
-  padding: 5px; }
-
-/* Colors for form validity */
-input:invalid, textarea:invalid {
-  background-color: #f0dddd; }
-
-/* =============================================================================
-   Tables
-   ========================================================================== */
-table {
-  border-collapse: collapse;
-  border-spacing: 0; }
-
-td {
-  vertical-align: top; }
-
-/* =============================================================================
-   Headings
-   ========================================================================== */
-h1 {
-  font-size: 40px;
-  padding: 0;
-  margin: 16px 0 8px; }
-
-h2 {
-  font-size: 32px; }
-
-h3 {
-  font-size: 28px; }
-
-h4 {
-  font-size: 24px; }
-
-h5 {
-  font-size: 20px; }
-
-h6 {
-  font-size: 16px; }
-
-/* ==|== primary styles =====================================================
-   Author: 
-   ========================================================================== */
-p {
-  line-height: 1.5em; }
-  p.subinfo {
-    margin: .5em 0 1em 0;
-    padding: 0;
-    font-size: 13px;
-    color: #888888; }
-
-code {
-  font-size: .9em; }
-
-pre {
-  font-size: 12px;
-  line-height: 1.2em;
-  white-space: pre-wrap;
-  white-space: -moz-pre-wrap !important;
-  white-space: -pre-wrap;
-  white-space: -o-pre-wrap;
-  word-wrap: break-word; }
-
-.series {
-  padding: 0 20px; }
-  .series a {
-    font-size: 12px; }
-
-/** layout **/
-#container {
-  width: 900px;
-  margin: 0 auto;
-  padding: 0 0 20px 0; }
-
-#footer {
-  text-align: center;
-  margin: 30px 0; }
-  #footer a {
-    padding: 5px 10px; }
-
-#main {
-  margin: 0;
-  padding: 0 10px;
-  width: 680px;
-  float: left; }
-
-.lists h2 {
-  margin: 10px 0; }
-
-h2 a, h3 a, h2 a:visited, h3 a:visited {
-  color: #363636; }
-
-.post {
-  border-top: 1px solid #eeeeee;
-  margin: 10px 0 10px 0; }
-
-#menu {
-  margin: 0;
-  padding: 0;
-  width: 180px;
-  float: right; }
-  #menu h3 {
-    font-size: 20px;
-    margin: 18px 0 5px;
-    padding: 0 0 0 3px; }
-    #menu h3 a {
-      padding: 0; }
-      #menu h3 a:hover {
-        color: maroon;
-        background: none; }
-      #menu h3 a:active {
-        background: none;
-        color: #4d0000; }
-      #menu h3 a:visited {
-        color: #363636; }
-  #menu a {
-    display: block;
-    padding: 3px;
-    color: #363636; }
-    #menu a:hover {
-      background: #eeeeee;
-      color: maroon; }
-    #menu a:active {
-      background: #d4d4d4;
-      color: #4d0000; }
-    #menu a:visited {
-      color: #363636; }
-
-/** Login **/
-.login {
-  width: 400px;
-  margin: 40px auto 80px;
-  padding: 20px;
-  border: 10px solid #eeeeee; }
-  .login div {
-    margin: 20px 0 0 0; }
-  .login div.submit:after {
-    content: '.';
-    display: block;
-    visibility: hidden;
-    height: 0;
-    clear: both; }
-  .login input[type=text], .login input[type=password] {
-    width: 390px;
-    height: 30px;
-    line-height: 30px;
-    font-size: 20px;
-    vertical-align: middle; }
-  .login input[type=submit] {
-    float: right;
-    margin: 0 5px 0 0; }
-  .login label {
-    font-size: 20px;
-    display: block; }
-
-/** About Me **/
-.connor_photo {
-  height: 170px;
-  width: 144px;
-  margin: 10px 8px 8px;
-  border: #eeeeee 2px solid; }
-
-/* Positioning */
-.left {
-  float: left; }
-
-.right {
-  float: right; }
-
-.absolute {
-  position: absolute; }
-
-.relative {
-  position: relative; }
-
-.fixed {
-  position: fixed; }
-
-.width-5 {
-  width: 5%; }
-
-.width-10 {
-  width: 10%; }
-
-.width-15 {
-  width: 15%; }
-
-.width-20 {
-  width: 20%; }
-
-.width-25 {
-  width: 25%; }
-
-.width-30 {
-  width: 30%; }
-
-.width-33 {
-  width: 33%; }
-
-.width-35 {
-  width: 35%; }
-
-.width-40 {
-  width: 40%; }
-
-.width-45 {
-  width: 45%; }
-
-.width-50 {
-  width: 50%; }
-
-.width-55 {
-  width: 55%; }
-
-.width-60 {
-  width: 60%; }
-
-.width-65 {
-  width: 65%; }
-
-.width-66 {
-  width: 66%; }
-
-.width-70 {
-  width: 70%; }
-
-.width-75 {
-  width: 75%; }
-
-.width-80 {
-  width: 80%; }
-
-.width-85 {
-  width: 85%; }
-
-.width-90 {
-  width: 90%; }
-
-.width-95 {
-  width: 95%; }
-
-.width-100 {
-  width: 100%; }
-
-/* ==|== non-semantic helper classes ========================================
-   Please define your styles before this section.
-   ========================================================================== */
-/* For image replacement */
-.ir {
-  display: block;
-  border: 0;
-  text-indent: -999em;
-  overflow: hidden;
-  background-color: transparent;
-  background-repeat: no-repeat;
-  text-align: left;
-  direction: ltr; }
-
-.ir br {
-  display: none; }
-
-/* Hide from both screenreaders and browsers: h5bp.com/u */
-.hidden {
-  display: none !important;
-  visibility: hidden; }
-
-/* Hide only visually, but have it available for screenreaders: h5bp.com/v */
-.visuallyhidden {
-  border: 0;
-  clip: rect(0 0 0 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px; }
-
-/* Extends the .visuallyhidden class to allow the element to be focusable when navigated to via the keyboard: h5bp.com/p */
-.visuallyhidden.focusable:active, .visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto; }
-
-/* Hide visually and from screenreaders, but maintain layout */
-.invisible {
-  visibility: hidden; }
-
-/* Contain floats: h5bp.com/q */
-.clearfix:before, .clearfix:after {
-  content: "";
-  display: table; }
-
-.clearfix:after {
-  clear: both; }
-
-.clearfix {
-  zoom: 1; }
-
-/* ==|== media queries ======================================================
-   PLACEHOLDER Media Queries for Responsive Design.
-   These override the primary ('mobile first') styles
-   Modify as content requires.
-   ========================================================================== */
-@media only screen and (min-width: 480px) {
-  /* Style adjustments for viewports 480px and over go here */ }
-@media only screen and (min-width: 768px) {
-  /* Style adjustments for viewports 768px and over go here */ }
-/* ==|== print styles =======================================================
-   Print styles.
-   Inlined to avoid required HTTP connection: h5bp.com/r
-   ========================================================================== */
-@media print {
-  * {
-    background: transparent !important;
-    color: black !important;
-    text-shadow: none !important;
-    filter: none !important;
-    -ms-filter: none !important; }
-
-  /* Black prints faster: h5bp.com/s */
-  a, a:visited {
-    text-decoration: underline; }
-
-  a[href]:after {
-    content: " (" attr(href) ")"; }
-
-  abbr[title]:after {
-    content: " (" attr(title) ")"; }
-
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
-    content: ""; }
-
-  /* Don't show links for images, or javascript/internal links */
-  pre, blockquote {
-    border: 1px solid #999;
-    page-break-inside: avoid; }
-
-  thead {
-    display: table-header-group; }
-
-  /* h5bp.com/t */
-  tr, img {
-    page-break-inside: avoid; }
-
-  img {
-    max-width: 100% !important; }
-
-  @page {
-    margin: 0.5cm; }
-
-  p, h2, h3 {
-    orphans: 3;
-    widows: 3; }
-
-  h2, h3 {
-    page-break-after: avoid; } }
-/*
-
-Zenburn style from voldmar.ru (c) Vladimir Epifanov <voldmar@voldmar.ru>
-based on dark.css by Ivan Sagalaev
-
-*/
-
-pre code {
-  display: block; padding: 0.5em;
-  background: #3F3F3F;
-  color: #DCDCDC;
-}
-
-pre .keyword,
-pre .tag,
-pre .django .tag,
-pre .django .keyword,
-pre .css .class,
-pre .css .id,
-pre .lisp .title {
-  color: #E3CEAB;
-}
-
-pre .django .template_tag,
-pre .django .variable,
-pre .django .filter .argument {
-  color: #DCDCDC;
-}
-
-pre .number,
-pre .date {
-  color: #8CD0D3;
-}
-
-pre .dos .envvar,
-pre .dos .stream,
-pre .variable,
-pre .apache .sqbracket {
-  color: #EFDCBC;
-}
-
-pre .dos .flow,
-pre .diff .change,
-pre .python .exception,
-pre .python .built_in,
-pre .literal,
-pre .tex .special {
-  color: #EFEFAF;
-}
-
-pre .diff .chunk,
-pre .ruby .subst {
-  color: #8F8F8F;
-}
-
-pre .dos .keyword,
-pre .python .decorator,
-pre .class .title,
-pre .haskell .label,
-pre .function .title,
-pre .ini .title,
-pre .diff .header,
-pre .ruby .class .parent,
-pre .apache .tag,
-pre .nginx .built_in,
-pre .tex .command,
-pre .input_number {
-    color: #efef8f;
-}
-
-pre .dos .winutils,
-pre .ruby .symbol,
-pre .ruby .symbol .string,
-pre .ruby .symbol .keyword,
-pre .ruby .symbol .keymethods,
-pre .ruby .string,
-pre .ruby .instancevar {
-  color: #DCA3A3;
-}
-
-pre .diff .deletion,
-pre .string,
-pre .tag .value,
-pre .preprocessor,
-pre .built_in,
-pre .sql .aggregate,
-pre .javadoc,
-pre .smalltalk .class,
-pre .smalltalk .localvars,
-pre .smalltalk .array,
-pre .css .rules .value,
-pre .attr_selector,
-pre .pseudo,
-pre .apache .cbracket,
-pre .tex .formula {
-  color: #CC9393;
-}
-
-pre .shebang,
-pre .diff .addition,
-pre .comment,
-pre .java .annotation,
-pre .template_comment,
-pre .pi,
-pre .doctype {
-  color: #7F9F7F;
-}
-
-pre .xml .css,
-pre .xml .javascript,
-pre .xml .vbscript,
-pre .tex .formula {
-  opacity: 0.5;
-}
+article,aside,details,figcaption,figure,footer,header,hgroup,nav,section{display:block;}
+audio,canvas,video{display:inline-block;*display:inline;*zoom:1;}
+audio:not([controls]){display:none;}
+[hidden]{display:none;}
+html,body{height:100%;margin:0;padding:0;}
+html{font-size:100%;overflow-y:scroll;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;margin:0;padding:0;}
+body{margin:0;font-size:13px;line-height:1.231;padding:0;background:#ffffff;font-family:Georgia,"Times New Roman",serif;font-size:16px;color:#363636;}
+body,button,input,select,textarea{font-family:sans-serif;color:#222;}::-moz-selection{background:#fe57a1;color:#fff;text-shadow:none;}::selection{background:#fe57a1;color:#fff;text-shadow:none;}
+a{color:#990000;text-decoration:none;}
+a:active{color:#4d0000;outline:0;}
+a:visited{color:#990000;}
+a:hover{color:maroon!important;text-decoration:underline;outline:0;}
+abbr[title]{border-bottom:1px dotted;}
+b,strong{font-weight:bold;}
+blockquote{margin:1em 40px;}
+dfn{font-style:italic;}
+hr{display:block;height:1px;border:0;border-top:1px solid#ccc;margin:1em 0;padding:0;}
+ins{background:#ff9;color:#000;text-decoration:none;}
+mark{background:#ff0;color:#000;font-style:italic;font-weight:bold;}
+pre,code,kbd,samp{font-family:monospace,monospace;_font-family:'courier new',monospace;font-size:1em;}
+pre{white-space:pre;white-space:pre-wrap;word-wrap:break-word;}
+q{quotes:none;}
+q:before,q:after{content:"";content:none;}
+small{font-size:85%;}
+sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}
+sup{top:-0.5em;}
+sub{bottom:-0.25em;}
+ul,ol{margin:1em 0;padding:0 0 0 40px;}
+dd{margin:0 0 0 40px;}
+nav ul,nav ol{list-style:none;list-style-image:none;margin:0;padding:0;}
+img{border:0;-ms-interpolation-mode:bicubic;vertical-align:middle;}
+svg:not(:root){overflow:hidden;}
+figure{margin:0;}
+form{margin:0;}
+fieldset{border:0;margin:0;padding:0;}
+label{cursor:pointer;font-size:14px;padding:0 5px 0 0;}
+legend{border:0;*margin-left:-7px;padding:0;}
+button,input,select,textarea{font-size:100%;margin:0;vertical-align:baseline;*vertical-align:middle;}
+button,input{line-height:normal;*overflow:visible;}
+table button,table input{*overflow:auto;}
+button,input[type="button"],input[type="reset"],input[type="submit"]{cursor:pointer;-webkit-appearance:button;}
+input[type="checkbox"],input[type="radio"]{box-sizing:border-box;}
+input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}
+input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}
+input[type="text"]{width:310px;margin:10px 20px 0 0;}
+button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}
+textarea{overflow:auto;vertical-align:top;resize:vertical;width:668px;height:500px;font-size:14px;padding:5px;}
+input:invalid,textarea:invalid{background-color:#f0dddd;}
+table{border-collapse:collapse;border-spacing:0;}
+td{vertical-align:top;}
+h1{font-size:40px;padding:0;margin:16px 0 8px;}
+h2{font-size:32px;}
+h3{font-size:28px;}
+h4{font-size:24px;}
+h5{font-size:20px;}
+h6{font-size:16px;}
+p{line-height:1.5em;}
+p.subinfo{margin:.5em 0 1em 0;padding:0;font-size:13px;color:#888888;}
+code{font-size:.9em;}
+pre{font-size:12px;line-height:1.2em;white-space:pre-wrap;white-space:-moz-pre-wrap!important;white-space:-pre-wrap;white-space:-o-pre-wrap;word-wrap:break-word;}.series{padding:0 20px;}.series a{font-size:12px;}#container{width:900px;margin:0 auto;padding:0 0 20px 0;}#footer{text-align:center;margin:30px 0;}#footer a{padding:5px 10px;}#main{margin:0;padding:0 10px;width:680px;float:left;}.lists h2{margin:10px 0;}
+h2 a,h3 a,h2 a:visited,h3 a:visited{color:#363636;}.post{border-top:1px solid#eeeeee;margin:10px 0 10px 0;}#menu{margin:0;padding:0;width:180px;float:right;}#menu h3{font-size:20px;margin:18px 0 5px;padding:0 0 0 3px;}#menu h3 a{padding:0;}#menu h3 a:hover{color:maroon;background:none;}#menu h3 a:active{background:none;color:#4d0000;}#menu h3 a:visited{color:#363636;}#menu a{display:block;padding:3px;color:#363636;}#menu a:hover{background:#eeeeee;color:maroon;}#menu a:active{background:#d4d4d4;color:#4d0000;}#menu a:visited{color:#363636;}.login{width:400px;margin:40px auto 80px;padding:20px;border:10px solid#eeeeee;}.login div{margin:20px 0 0 0;}.login div.submit:after{content:'.';display:block;visibility:hidden;height:0;clear:both;}.login input[type=text],.login input[type=password]{width:390px;height:30px;line-height:30px;font-size:20px;vertical-align:middle;}.login input[type=submit]{float:right;margin:0 5px 0 0;}.login label{font-size:20px;display:block;}.connor_photo{height:170px;width:144px;margin:10px 8px 8px;border:#eeeeee 2px solid;}.left{float:left;}.right{float:right;}.absolute{position:absolute;}.relative{position:relative;}.fixed{position:fixed;}.width-5{width:5%;}.width-10{width:10%;}.width-15{width:15%;}.width-20{width:20%;}.width-25{width:25%;}.width-30{width:30%;}.width-33{width:33%;}.width-35{width:35%;}.width-40{width:40%;}.width-45{width:45%;}.width-50{width:50%;}.width-55{width:55%;}.width-60{width:60%;}.width-65{width:65%;}.width-66{width:66%;}.width-70{width:70%;}.width-75{width:75%;}.width-80{width:80%;}.width-85{width:85%;}.width-90{width:90%;}.width-95{width:95%;}.width-100{width:100%;}.ir{display:block;border:0;text-indent:-999em;overflow:hidden;background-color:transparent;background-repeat:no-repeat;text-align:left;direction:ltr;}.ir br{display:none;}.hidden{display:none!important;visibility:hidden;}.visuallyhidden{border:0;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;}.visuallyhidden.focusable:active,.visuallyhidden.focusable:focus{clip:auto;height:auto;margin:0;overflow:visible;position:static;width:auto;}.invisible{visibility:hidden;}.clearfix:before,.clearfix:after{content:"";display:table;}.clearfix:after{clear:both;}.clearfix{zoom:1;}@media only screen and(min-width:480px){}@media only screen and(min-width:768px){}@media print{*{background:transparent!important;color:black!important;text-shadow:none!important;filter:none!important;-ms-filter:none!important;}
+a,a:visited{text-decoration:underline;}
+a[href]:after{content:" ("attr(href)")";}
+abbr[title]:after{content:" ("attr(title)")";}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:"";}
+pre,blockquote{border:1px solid#999;page-break-inside:avoid;}
+thead{display:table-header-group;}
+tr,img{page-break-inside:avoid;}
+img{max-width:100%!important;}@page{margin:0.5cm;}
+p,h2,h3{orphans:3;widows:3;}
+h2,h3{page-break-after:avoid;}}
+pre code{display:block;padding:0.5em;background:#3F3F3F;color:#DCDCDC;}
+pre.keyword,pre.tag,pre.django.tag,pre.django.keyword,pre.css.class,pre.css.id,pre.lisp.title{color:#E3CEAB;}
+pre.django.template_tag,pre.django.variable,pre.django.filter.argument{color:#DCDCDC;}
+pre.number,pre.date{color:#8CD0D3;}
+pre.dos.envvar,pre.dos.stream,pre.variable,pre.apache.sqbracket{color:#EFDCBC;}
+pre.dos.flow,pre.diff.change,pre.python.exception,pre.python.built_in,pre.literal,pre.tex.special{color:#EFEFAF;}
+pre.diff.chunk,pre.ruby.subst{color:#8F8F8F;}
+pre.dos.keyword,pre.python.decorator,pre.class.title,pre.haskell.label,pre.function.title,pre.ini.title,pre.diff.header,pre.ruby.class.parent,pre.apache.tag,pre.nginx.built_in,pre.tex.command,pre.input_number{color:#efef8f;}
+pre.dos.winutils,pre.ruby.symbol,pre.ruby.symbol.string,pre.ruby.symbol.keyword,pre.ruby.symbol.keymethods,pre.ruby.string,pre.ruby.instancevar{color:#DCA3A3;}
+pre.diff.deletion,pre.string,pre.tag.value,pre.preprocessor,pre.built_in,pre.sql.aggregate,pre.javadoc,pre.smalltalk.class,pre.smalltalk.localvars,pre.smalltalk.array,pre.css.rules.value,pre.attr_selector,pre.pseudo,pre.apache.cbracket,pre.tex.formula{color:#CC9393;}
+pre.shebang,pre.diff.addition,pre.comment,pre.java.annotation,pre.template_comment,pre.pi,pre.doctype{color:#7F9F7F;}
+pre.xml.css,pre.xml.javascript,pre.xml.vbscript,pre.tex.formula{opacity:0.5;}
