@@ -23,7 +23,7 @@
 		</p>
 		<?php if (!empty($post['ParentPost']['title']) || !empty($post['ChildPost']['title'])): ?>
 			<div class="clearfix series">
-				<?php if (!empty($post['ParentPost']['title']) && $post['ChildPost']['is_published']): ?>
+				<?php if (!empty($post['ParentPost']['title']) && $post['ParentPost']['is_published']): ?>
 					<?php echo $this->Html->link(
 						__('<< Previous in series'),
 						array(
