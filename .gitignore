@@ -9,6 +9,7 @@ tmp/sessions/*
 tmp/logs/*
 tmp/tests/*
 Posts/*
+Lib/Cake
 
 
 # Numerous always-ignore extensions
