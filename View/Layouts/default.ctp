@@ -10,19 +10,9 @@
 	<title><?php echo $title_for_layout; ?> - Joey Trapp</title>
 	<?php echo $this->Html->meta('icon'); ?>	
 	
-	<?php if (Configure::read('debug')): ?>
-		<?php echo $this->Html->css('style'); ?>
-		<?php echo $this->Html->css('highlight/zenburn'); ?>
-		<?php echo $this->Html->script('libs/jquery-1.6.2');	?>
-		<?php echo $this->Html->script('libs/underscore'); ?>
-		<?php echo $this->Html->script('libs/backbone'); ?>
-		<?php echo $this->Html->script('libs/modernizr-2.0.6.min.js'); ?>
-		<?php echo $this->Html->script('libs/highlight/highlight.pack'); ?>
-	<?php else: ?>
-		<?php echo $this->Html->css('application.css'); ?>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
-		<?php echo $this->Html->script('libs/libs'); ?>
-	<?php endif; ?>
+	<?php echo $this->Html->css('style'); ?>
+	<?php echo $this->Html->css('highlight/zenburn'); ?>
+	<?php echo $this->Html->script('libs/modernizr-2.0.6.min.js'); ?>
 	
 	<?php echo $scripts_for_layout; ?>
 </head>
@@ -78,12 +68,11 @@
 	
 	</footer>
 	
-	<?php if (Configure::read('debug')): ?>
-		<script src="<?php echo Router::url('/js/script.js'); ?>" defer></script>
-		<script src="<?php echo Router::url('/js/plugins.js'); ?>" defer></script>
-	<?php else: ?>
-		<script src="<?php echo Router::url('/js/application.js'); ?>" defer></script>
-	<?php endif; ?>
+	<?php echo $this->Html->script('libs/jquery-1.7.1');	?>
+	<?php echo $this->Html->script('libs/jquery.textarea.js'); ?>
+	<?php echo $this->Html->script('libs/highlight/highlight.pack'); ?>
+	<script src="<?php echo Router::url('/js/script.js'); ?>" defer></script>
+	<script src="<?php echo Router::url('/js/plugins.js'); ?>" defer></script>
 	
 	<?php echo $this->element('sql_dump'); ?>
 	
