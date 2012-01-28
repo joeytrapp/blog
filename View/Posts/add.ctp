@@ -20,9 +20,5 @@
 	'empty' => 'No previous post'
 )); ?>
 <?php echo $this->Form->input('user_id'); ?>
-<?php echo $this->Form->input('post_file', array(
-	'type' => 'select',
-	'options' => $posts,
-	'empty' => 'Select Post File'
-)); ?>
+<?php echo $this->Form->input('content'); ?>
 <?php echo $this->Form->end('Save'); ?>

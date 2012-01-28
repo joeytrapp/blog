@@ -22,3 +22,5 @@ CREATE TABLE `posts` (
   `modified` datetime DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+ALTER TABLE `posts` ADD COLUMN `content` TEXT DEFAULT "";

@@ -105,10 +105,9 @@ class PostsController extends AppController {
 				$this->Session->setFlash(__('Post failed.', true));
 			}
 		}
-		$posts = $this->Post->getList();
 		$parents = $this->Post->find('list');
 		$users = $this->Post->User->find('list');
-		$this->set(compact('parents', 'users', 'posts'));
+		$this->set(compact('parents', 'users'));
 	}
 	
 	/**
@@ -140,9 +139,8 @@ class PostsController extends AppController {
 				)
 			)
 		));
-		$posts = $this->Post->getList();
 		$users = $this->Post->User->find('list');
-		$this->set(compact('parents', 'users', 'posts'));
+		$this->set(compact('parents', 'users'));
 	}
 	
 	/**
