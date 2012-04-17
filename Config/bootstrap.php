@@ -65,3 +65,5 @@ Cache::config('default', array('engine' => 'File'));
  */
 
 CakePlugin::load("TwitterBootstrap");
+CakePlugin::load("Partials");
+CakePlugin::load("Decorator");
