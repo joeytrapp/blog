@@ -34,6 +34,8 @@ class AppController extends Controller {
 
 		public $components = array('Auth', 'Session');
 
+		public $helpers = array("Html", "Form", "Session", "TwitterBootstrap.TwitterBootstrap");
+
 /**
  * beforeFilter function.
  * 
