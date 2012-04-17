@@ -4,3 +4,6 @@
 [submodule "Plugin/Partials"]
 	path = Plugin/Partials
 	url = https://joeytrapp@github.com/joeytrapp/partials.git
+[submodule "Plugin/Decorator"]
+	path = Plugin/Decorator
+	url = https://joeytrapp@github.com/joeytrapp/decorator.git
