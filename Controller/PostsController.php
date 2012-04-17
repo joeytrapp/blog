@@ -61,7 +61,10 @@ class PostsController extends AppController {
 			);
 		}
 		$paginate['limit'] = 9999;
-		$this->paginate = array_merge($paginate, array('order' => array('Post.publish_date' => 'DESC')));
+		$this->paginate = array_merge(
+			$paginate,
+			array('order' => array('Post.publish_date' => 'DESC'))
+		);
 		$posts = $this->paginate();
 		$this->set(compact('posts'));
 	}
@@ -83,7 +86,7 @@ class PostsController extends AppController {
 			)
 		));
 		if (empty($post)) {
-			$this->redirect(array('action' => 'latest'));
+			throw new NotFoundException("Post doesn't exist");
 		}
 		$this->set(compact('post'));
 	}
@@ -95,9 +98,9 @@ class PostsController extends AppController {
 	 * @return void
 	 */
 	public function add() {
-		if (!empty($this->data)) {
+		if (!empty($this->request->data)) {
 			$this->Post->create();
-			if ($this->Post->save($this->data)) {
+			if ($this->Post->save($this->request->data)) {
 				$this->Session->setFlash(__('Post created.', true));
 				$post = $this->Post->read();
 				$this->redirect(array('action' => 'view', $post['Post']['slug']));
