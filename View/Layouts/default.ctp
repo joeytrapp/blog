@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title><?php echo $title_for_layout; ?> - Joey Trapp</title>
 	<?php echo $this->Html->meta('icon'); ?>
-	<?php echo $this->Html->css(array('app', 'zenburnesque')); ?>
+	<?php echo $this->Html->css(array('app', 'rainbow/zenburnesque')); ?>
 	<?php echo $this->Html->script('libs/modernizr-2.5.2.min.js'); ?>
 	<?php echo $scripts_for_layout; ?>
 </head>
@@ -37,10 +37,8 @@
 
 	<div class="container">
 		<div class="row">
-			<?php echo $this->Session->flash(); ?>
-		</div>
-		<div class="row">
 			<div class="span12">
+				<?php echo $this->TwitterBootstrap->flashes(); ?>
 				<?php echo $content_for_layout; ?>
 			</div>
 		</div>
@@ -48,24 +46,25 @@
 		
 	<footer class="footer">
 		<div class="container">
-			<?php if (AuthComponent::user()): ?>
-				<?php echo $this->Html->link('New Post', "/posts/add"); ?>
-				<?php echo $this->Html->link('Logout', "/logout"); ?>
-			<?php endif; ?>
-			
-			<h3>Me being social</h3>
-			<a href="http://twitter.com/#!/joeytrapp">@joeytrapp</a>
-			<a href="http://github.com/joeytrapp">joeytrapp on GitHub</a>
-			
-			<h3><a href="http://loadsys.com">Loadsys Web Strategies</a></h3>
-			<a href="http://twitter.com/#!/loadsys">@loadsys</a>
-			<a href="http://github.com/loadsys">Loadsys on GitHub</a>
+			<div class="row">
+				<div class="span4">
+					<h3>Me being social</h3>
+					<a href="http://twitter.com/#!/joeytrapp">@joeytrapp on Twitter</a><br>
+					<a href="http://github.com/joeytrapp">joeytrapp on GitHub</a>
+				</div>
+				<div class="span4">
+					<h3><a href="http://loadsys.com">Loadsys Web Strategies</a></h3>
+					<a href="http://twitter.com/#!/loadsys">@loadsys on Twitter</a><br>
+					<a href="http://github.com/loadsys">Loadsys on GitHub</a>
+				</div>
+			</div>
 		</div>
 	</footer>
 	
 	<?php echo $this->Html->script(array(
-		'libs/jquery-1.7.2',
+		'libs/jquery-1.7.2.min',
 		'libs/jquery.textarea',
+		'libs/date',
 		'libs/rainbow-custom.min',
 		'script'
 	));	?>
