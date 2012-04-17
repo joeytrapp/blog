@@ -1,54 +1,56 @@
 <?php if (!empty($post)): ?>
 	<?php $this->set('title_for_layout', h($post['Post']['title'])); ?>
 	<article>
-		<h1><?php echo __($post['Post']['title']); ?></h1>
-		<p class="subinfo">
-			<?php echo date('m/d/Y', strtotime($post['Post']['publish_date'])); ?>
-			<?php if (AuthComponent::user()): ?>
-				<?php echo $this->Html->link(
-					__('Edit'),
-					array(
-						'action' => 'edit',
-						$post['Post']['id']
-					)
-				); ?>
-				<?php echo $this->Html->link(
-					__('Delete'),
-					array(
-						'action' => 'delete',
-						$post['Post']['id']
-					)
-				); ?>
+		<div class="page-header">
+			<h1><?php echo __($post['Post']['title']); ?></h1>
+			<p class="subinfo">
+				<?php echo date('m/d/Y', strtotime($post['Post']['publish_date'])); ?>
+				<?php if (AuthComponent::user()): ?>
+					<?php echo $this->Html->link(
+						__('Edit'),
+						array(
+							'action' => 'edit',
+							$post['Post']['id']
+						)
+					); ?>
+					<?php echo $this->Html->link(
+						__('Delete'),
+						array(
+							'action' => 'delete',
+							$post['Post']['id']
+						)
+					); ?>
+				<?php endif; ?>
+			</p>
+			<?php if (!empty($post['ParentPost']['title']) || !empty($post['ChildPost']['title'])): ?>
+				<div class="clearfix series">
+					<?php if (!empty($post['ParentPost']['title']) && $post['ParentPost']['is_published']): ?>
+						<?php echo $this->Html->link(
+							__('<< Previous in series'),
+							array(
+								'action' => 'view',
+								$post['ParentPost']['slug']
+							),
+							array(
+								'class' => 'pull-left'
+							)
+						); ?>
+					<?php endif; ?>
+					<?php if (!empty($post['ChildPost']['title']) && $post['ChildPost']['is_published']): ?>
+						<?php echo $this->Html->link(
+							__('Next in series >>'),
+							array(
+								'action' => 'view',
+								$post['ChildPost']['slug']
+							),
+							array(
+								'class' => 'pull-right'
+							)
+						); ?>
+					<?php endif; ?>
+				</div>
 			<?php endif; ?>
-		</p>
-		<?php if (!empty($post['ParentPost']['title']) || !empty($post['ChildPost']['title'])): ?>
-			<div class="clearfix series">
-				<?php if (!empty($post['ParentPost']['title']) && $post['ParentPost']['is_published']): ?>
-					<?php echo $this->Html->link(
-						__('<< Previous in series'),
-						array(
-							'action' => 'view',
-							$post['ParentPost']['slug']
-						),
-						array(
-							'class' => 'left'
-						)
-					); ?>
-				<?php endif; ?>
-				<?php if (!empty($post['ChildPost']['title']) && $post['ChildPost']['is_published']): ?>
-					<?php echo $this->Html->link(
-						__('Next in series >>'),
-						array(
-							'action' => 'view',
-							$post['ChildPost']['slug']
-						),
-						array(
-							'class' => 'right'
-						)
-					); ?>
-				<?php endif; ?>
-			</div>
-		<?php endif; ?>
+		</div>
 		<div class="post">
 			<?php echo $this->Markdown->parse($post['Post']['content']); ?>
 		</div>

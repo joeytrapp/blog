@@ -21,6 +21,10 @@
 				<ul class="nav">
 					<li><?php echo $this->Html->link("Posts", "/posts"); ?></li>
 					<li><?php echo $this->Html->link("About Me", "/about"); ?></li>
+					<?php if (AuthComponent::user()): ?>
+						<li><?php echo $this->Html->link('New Post', "/posts/add"); ?></li>
+						<li><?php echo $this->Html->link('Logout', "/logout"); ?></li>
+					<?php endif; ?>
 				</ul>
 				<div class="pull-right">
 					<form action="/posts" class="navbar-search">
@@ -46,7 +50,7 @@
 		<div class="container">
 			<?php if (AuthComponent::user()): ?>
 				<?php echo $this->Html->link('New Post', "/posts/add"); ?>
-				<?php echo $this->Html->link('Logout', "/users/logout"); ?>
+				<?php echo $this->Html->link('Logout', "/logout"); ?>
 			<?php endif; ?>
 			
 			<h3>Me being social</h3>
