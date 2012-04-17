@@ -4134,9 +4134,14 @@ pre > code {
   border-top: #eee 1px solid;
   padding-top: 15px;
   margin-top: 30px;
+  margin-bottom: 30px;
 }
 .login {
   background: #FAF8FC;
   border: #F5F1F9 3px solid;
   padding: 20px;
+}
+textarea.post-content {
+  width: 100%;
+  height: 400px;
 }
