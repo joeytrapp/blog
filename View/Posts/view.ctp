@@ -55,7 +55,16 @@
 			<?php echo $this->Markdown->parse($post['Post']['content']); ?>
 		</div>
 	</article>
-	<div id="disqus_thread"></div>
+	
+	<div class="page-header">
+		<h2>Comments</h2>
+	</div>
+	<div class="row">
+		<div class="span10">
+			<div id="disqus_thread"></div>
+		</div>
+	</div>
+	
 	<script type="text/javascript">
 	    var disqus_shortname = 'joeytrappsblog';
 	    var disqus_identifier = '<?php echo $post['Post']['id']; ?>';
