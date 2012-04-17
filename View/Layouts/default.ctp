@@ -45,20 +45,8 @@
 	<footer class="footer">
 		<div class="container">
 			<?php if (AuthComponent::user()): ?>
-				<?php echo $this->Html->link(
-					__('New Post'),
-					array(
-						'controller' => 'posts',
-						'action' => 'add'
-					)
-				); ?>
-				<?php echo $this->Html->link(
-					__('Logout'),
-					array(
-						'controller' => 'users',
-						'action' => 'logout'
-					)
-				); ?>
+				<?php echo $this->Html->link('New Post', "/posts/add"); ?>
+				<?php echo $this->Html->link('Logout', "/users/logout"); ?>
 			<?php endif; ?>
 			
 			<h3>Me being social</h3>
@@ -71,10 +59,12 @@
 		</div>
 	</footer>
 	
-	<?php echo $this->Html->script('libs/jquery-1.7.2');	?>
-	<?php echo $this->Html->script('libs/jquery.textarea.js'); ?>
-	<?php echo $this->Html->script('libs/rainbow-custom.min'); ?>
-	<script src="<?php echo Router::url('/js/script.js'); ?>" defer></script>
+	<?php echo $this->Html->script(array(
+		'libs/jquery-1.7.2',
+		'libs/jquery.textarea',
+		'libs/rainbow-custom.min',
+		'script'
+	));	?>
 	
 	<?php echo $this->element('sql_dump'); ?>
 	
