@@ -2,40 +2,48 @@
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" lang="en"> <![endif]-->
-<!-- Consider adding an manifest.appcache: h5bp.com/d/Offline -->
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"> <!--<![endif]-->
 <head>
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title><?php echo $title_for_layout; ?> - Joey Trapp</title>
-	<?php echo $this->Html->meta('icon'); ?>	
-	
-	<?php echo $this->Html->css('style'); ?>
-	<?php echo $this->Html->css('highlight/zenburn'); ?>
-	<?php echo $this->Html->script('libs/modernizr-2.0.6.min.js'); ?>
-	
+	<?php echo $this->Html->meta('icon'); ?>
+	<?php echo $this->Html->css(array('app', 'zenburnesque')); ?>
+	<?php echo $this->Html->script('libs/modernizr-2.5.2.min.js'); ?>
 	<?php echo $scripts_for_layout; ?>
 </head>
 <body>
-	<div id="container" class="clearfix">
-		
-		<?php /* <header class="header" role="banner"></header> */ ?>
-		
-		<div id="main" role="main">
-			<?php echo $this->Session->flash(); ?>
-			<?php echo $content_for_layout; ?>
+
+	<div class="navbar navbar-fixed-top">
+		<div class="navbar-inner">
+			<div class="container">
+				<a href="<?php echo Router::url("/"); ?>" class="brand">Joey Trapp</a>
+				<ul class="nav">
+					<li><?php echo $this->Html->link("Posts", "/posts"); ?></li>
+					<li><?php echo $this->Html->link("About Me", "/about"); ?></li>
+				</ul>
+				<div class="pull-right">
+					<form action="/posts" class="navbar-search">
+						<input type="text" name="q" class="input-medium search-query" placeholder="Search">
+					</form>
+				</div>
+			</div>
 		</div>
+	</div>
+
+	<div class="container">
+		<div class="row">
+			<?php echo $this->Session->flash(); ?>
+		</div>
+		<div class="row">
+			<div class="span12">
+				<?php echo $content_for_layout; ?>
+			</div>
+		</div>
+	</div>
 		
-		<aside id="menu">
-			<h3><a href="/">joeytrapp</a></h3>
-			<?php echo $this->Html->link(
-				__('Posts'),
-				array(
-					'controller' => 'posts',
-					'action' => 'index'
-				)
-			); ?>
-			<a href="/about">About Me</a>
+	<footer class="footer">
+		<div class="container">
 			<?php if (AuthComponent::user()): ?>
 				<?php echo $this->Html->link(
 					__('New Post'),
@@ -60,19 +68,13 @@
 			<h3><a href="http://loadsys.com">Loadsys Web Strategies</a></h3>
 			<a href="http://twitter.com/#!/loadsys">@loadsys</a>
 			<a href="http://github.com/loadsys">Loadsys on GitHub</a>
-		</aside>
-		
-	</div>
-	
-	<footer class="footer">
-	
+		</div>
 	</footer>
 	
-	<?php echo $this->Html->script('libs/jquery-1.7.1');	?>
+	<?php echo $this->Html->script('libs/jquery-1.7.2');	?>
 	<?php echo $this->Html->script('libs/jquery.textarea.js'); ?>
-	<?php echo $this->Html->script('libs/highlight/highlight.pack'); ?>
+	<?php echo $this->Html->script('libs/rainbow-custom.min'); ?>
 	<script src="<?php echo Router::url('/js/script.js'); ?>" defer></script>
-	<script src="<?php echo Router::url('/js/plugins.js'); ?>" defer></script>
 	
 	<?php echo $this->element('sql_dump'); ?>
 	
