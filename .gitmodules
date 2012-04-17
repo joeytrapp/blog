@@ -1,3 +1,6 @@
 [submodule "Plugin/TwitterBootstrap"]
 	path = Plugin/TwitterBootstrap
 	url = https://joeytrapp@github.com/loadsys/twitter-bootstrap-helper.git
+[submodule "Plugin/Partials"]
+	path = Plugin/Partials
+	url = https://joeytrapp@github.com/joeytrapp/partials.git
