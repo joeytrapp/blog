@@ -32,26 +32,6 @@ class Post extends AppModel {
 			'foreignKey' => 'parent_id'
 		)
 	);
-	
-/**
- * afterFind function.
- * 
- * @access public
- * @param array $results (default: array())
- * @param mixed $primary (default: null)
- * @return void
- */
-	public function afterFind($results = array(), $primary = null) {
-		foreach ($results as &$result) {
-			foreach (array('Post', 'ChildPost', 'ParentPost') as $type) {
-				if (array_key_exists($type, $result) && array_key_exists('content', $result[$type])) {
-					$content = $result[$type]['content'];
-					$result[$type]['description'] = $this->description($content);
-				}
-			}
-		}
-		return $results;
-	}
 
 /**
  * latest function.
@@ -91,20 +71,6 @@ class Post extends AppModel {
 			),
 			'limit' => 5
 		));
-	}
-	
-/**
- * description function.
- * 
- * @access public
- * @param mixed $content
- * @return void
- */
-	public function description($content) {
-		App::import('Vendor', 'Markdown');
-		$ret = Markdown($content);
-		$ret = substr(strip_tags($ret), 0, 300) . '...';
-		return $ret;
 	}
 	
 }
