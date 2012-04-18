@@ -4,7 +4,7 @@ class PostsController extends AppController {
 
 	public $name = 'Posts';
 	
-	public $helpers = array('Markdown', 'Time');
+	public $helpers = array('Time');
 	
 	/**
 	 * beforeFilter function.
@@ -65,7 +65,7 @@ class PostsController extends AppController {
 			$paginate,
 			array('order' => array('Post.publish_date' => 'DESC'))
 		);
-		$posts = $this->paginate();
+		$posts = $this->Decorator->build("Post", $this->paginate());
 		$this->set(compact('posts'));
 	}
 	
@@ -80,11 +80,11 @@ class PostsController extends AppController {
 		if (!$slug) {
 			$this->redirect(array('action' => 'latest'));
 		}
-		$post = $this->Post->find('first', array(
+		$post = $this->Decorator->create("Post", $this->Post->find('first', array(
 			'conditions' => array(
 				'Post.slug' => $slug
 			)
-		));
+		)));
 		if (empty($post)) {
 			throw new NotFoundException("Post doesn't exist");
 		}
