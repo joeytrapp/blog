@@ -32,7 +32,7 @@ App::uses('Controller', 'Controller');
  */
 class AppController extends Controller {
 
-		public $components = array('Auth', 'Session');
+		public $components = array('Auth', 'Session', 'Decorator.Decorator');
 
 		public $helpers = array(
 			"Html",
