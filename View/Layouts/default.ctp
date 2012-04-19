@@ -26,11 +26,11 @@
 						<li><?php echo $this->Html->link('Logout', "/logout"); ?></li>
 					<?php endif; ?>
 				</ul>
-				<div class="pull-right">
+				<?php /*<div class="pull-right">
 					<form action="/posts" class="navbar-search">
 						<input type="text" name="q" class="input-medium search-query" placeholder="Search">
 					</form>
-				</div>
+				</div> */ ?>
 			</div>
 		</div>
 	</div>

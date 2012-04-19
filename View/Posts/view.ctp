@@ -1,27 +1,25 @@
 
 <?php $this->set('title_for_layout', h($post->title())); ?>
 <article>
-	<div class="page-header">
-		<h1><?php echo __($post->title()); ?></h1>
-		<p class="subinfo">
-			<?php echo date('m/d/Y', strtotime($post->publish_date())); ?>
-			<?php if (AuthComponent::user()): ?>
-				<?php echo $this->Html->link(
+	<div class="page-header clearfix">
+		<?php if (AuthComponent::user()): ?>
+			<div class="pull-right">
+				<?php echo $this->TwitterBootstrap->button_link(
 					__('Edit'),
-					array(
-						'action' => 'edit',
-						$post->id()
-					)
+					array('action' => 'edit', $post->id()),
+					array("style" => "info", "size" => "small")
 				); ?>
-				<?php echo $this->Html->link(
+				<?php echo $this->TwitterBootstrap->button_link(
 					__('Delete'),
-					array(
-						'action' => 'delete',
-						$post->id()
-					)
+					array('action' => 'delete', $post->id()),
+					array("style" => "danger", "size" => "small")
 				); ?>
-			<?php endif; ?>
-		</p>
+			</div>
+		<?php endif; ?>
+		<h1>
+			<?php echo __($post->title()); ?>
+			<small><?php echo date('m/d/Y', strtotime($post->publish_date())); ?></small>
+		</h1>
 		<?php if (!$post->ParentPost->title() || $post->ChildPost->title()): ?>
 			<div class="clearfix series">
 				<?php if (!$post->ParentPost->title() && $post->ParentPost->is_published()): ?>
@@ -57,7 +55,7 @@
 </article>
 
 <div class="page-header">
-	<h2>Comments</h2>
+	<h1>Comments</h1>
 </div>
 <div class="row">
 	<div class="span10">
