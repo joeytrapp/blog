@@ -37,8 +37,10 @@
 <div class="row">
 	<div class="span12">
 		<?php echo $this->TwitterBootstrap->input('content', array(
-			"data-tabby" => "",
-			"class" => "post-content"
+			"input" => $this->Form->textarea("content", array(
+				"data-tabby" => "",
+				"class" => "post-content"
+			))
 		)); ?>
 	</div>
 </div>
