@@ -26,8 +26,10 @@
 <div class="row">
 	<div class="span4">
 		<?php echo $this->TwitterBootstrap->input('parent_id', array(
+			"input" => $this->Form->select("parent_id", $parents, array(
+				'empty' => 'No previous post'
+			))
 			'label' => 'Previous Post',
-			'empty' => 'No previous post'
 		)); ?>
 	</div>
 	<div class="span4">
