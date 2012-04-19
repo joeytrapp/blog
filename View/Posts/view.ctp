@@ -1,47 +1,47 @@
 
-<?php $this->set('title_for_layout', h($post['Post']['title'])); ?>
+<?php $this->set('title_for_layout', h($post->title())); ?>
 <article>
 	<div class="page-header">
-		<h1><?php echo __($post['Post']['title']); ?></h1>
+		<h1><?php echo __($post->title()); ?></h1>
 		<p class="subinfo">
-			<?php echo date('m/d/Y', strtotime($post['Post']['publish_date'])); ?>
+			<?php echo date('m/d/Y', strtotime($post->publish_date())); ?>
 			<?php if (AuthComponent::user()): ?>
 				<?php echo $this->Html->link(
 					__('Edit'),
 					array(
 						'action' => 'edit',
-						$post['Post']['id']
+						$post->id()
 					)
 				); ?>
 				<?php echo $this->Html->link(
 					__('Delete'),
 					array(
 						'action' => 'delete',
-						$post['Post']['id']
+						$post->id()
 					)
 				); ?>
 			<?php endif; ?>
 		</p>
-		<?php if (!empty($post['ParentPost']['title']) || !empty($post['ChildPost']['title'])): ?>
+		<?php if (!$post->ParentPost->title() || $post->ChildPost->title()): ?>
 			<div class="clearfix series">
-				<?php if (!empty($post['ParentPost']['title']) && $post['ParentPost']['is_published']): ?>
+				<?php if (!$post->ParentPost->title() && $post->ParentPost->is_published()): ?>
 					<?php echo $this->Html->link(
 						__('<< Previous in series'),
 						array(
 							'action' => 'view',
-							$post['ParentPost']['slug']
+							$post->ParentPost->slug()
 						),
 						array(
 							'class' => 'pull-left'
 						)
 					); ?>
 				<?php endif; ?>
-				<?php if (!empty($post['ChildPost']['title']) && $post['ChildPost']['is_published']): ?>
+				<?php if (!$post->ChildPost->title() && $post->ChildPost->is_published()): ?>
 					<?php echo $this->Html->link(
 						__('Next in series >>'),
 						array(
 							'action' => 'view',
-							$post['ChildPost']['slug']
+							$post->ChildPost->slug()
 						),
 						array(
 							'class' => 'pull-right'
@@ -52,7 +52,7 @@
 		<?php endif; ?>
 	</div>
 	<div class="post">
-		<?php echo $this->Markdown->parse($post['Post']['content']); ?>
+		<?php echo $post->toParsedHtml(); ?>
 	</div>
 </article>
 
@@ -67,8 +67,8 @@
 
 <script type="text/javascript">
 	  var disqus_shortname = 'joeytrappsblog';
-	  var disqus_identifier = '<?php echo $post['Post']['id']; ?>';
-	  var disqus_url = '<?php echo Router::url(array('action' => 'view', $post['Post']['slug']), true); ?>';
+	  var disqus_identifier = '<?php echo $post->id(); ?>';
+	  var disqus_url = '<?php echo Router::url(array('action' => 'view', $post->slug()), true); ?>';
 	  (function() {
 	      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
 	      dsq.src = 'http://' + disqus_shortname + '.disqus.com/embed.js';

@@ -8,7 +8,7 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 	<title><?php echo $title_for_layout; ?> - Joey Trapp</title>
 	<?php echo $this->Html->meta('icon'); ?>
-	<?php echo $this->Html->css(array('app', 'rainbow/zenburnesque')); ?>
+	<?php echo $this->Html->css(array('app', 'rainbow/github')); ?>
 	<?php echo $this->Html->script('libs/modernizr-2.5.2.min.js'); ?>
 	<?php echo $scripts_for_layout; ?>
 </head>
