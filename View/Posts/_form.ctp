@@ -28,7 +28,7 @@
 		<?php echo $this->TwitterBootstrap->input('parent_id', array(
 			"input" => $this->Form->select("parent_id", $parents, array(
 				'empty' => 'No previous post'
-			))
+			)),
 			'label' => 'Previous Post',
 		)); ?>
 	</div>
