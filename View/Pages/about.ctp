@@ -17,6 +17,6 @@
 
 <p>While PHP and CakePHP were my first, I am also interested in some other languages. I've recently leaned <a href="http://ruby-lang.org">Ruby</a>, and am now working with the <a href="http://rubyonrails.org">Ruby on Rails</a> framework and <a href="http://www.sinatrarb.com">Sinatra</a>.</p>
 
-<p>I've been doing more and more javascript recently, For a DOM library, I prefer <a href="http://jquery.com">jQuery</a>. As our apps are getting bigger, I really like the <a href="http://documentcloud.github.com/backbone/">Backbone.js</a> framework. Also, <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a> is awesome, and my preferred way of writing any Javascript.</p>
+<p>I've been doing more and more javascript recently. For a DOM library, I prefer <a href="http://jquery.com">jQuery</a>. As our apps are getting bigger, I really like the <a href="http://documentcloud.github.com/backbone/">Backbone.js</a> framework. Also, <a href="http://jashkenas.github.com/coffee-script/">CoffeeScript</a> is awesome, and my preferred way of writing any Javascript.</p>
 
 <p>Enough of that. Checkout the <?php echo $this->Html->link('posts', array('controller' => 'posts')); ?> I've written for something that might interest you. If you'd like to leave feedback, either leave comments on the posts or contact me on Twitter at <a href="http://twitter.com/#!/joeyrapp">@joeytrapp</a></p>
