@@ -1,3 +1,24 @@
+(function ($) {
+	$.fn.dateField = function () {
+		return this.each(function () {
+			var div, field, hidden;
+			div = $(this);
+			field = div.find("input[type=text]");
+			hidden = div.find("input[type=hidden]");
+			field.keyup(function () {
+				var date = Date.parse(field.val());
+				if (date) {
+					div.removeClass("error").addClass("success");
+					hidden.val(date.toString());
+				} else {
+					div.removeClass("success").addClass("error");
+					hidden.val("");
+				}
+			});
+		});
+	};
+}(jQuery));
+
 $(function() {
 	$("textarea[data-tabby]").tabby();
 
@@ -5,14 +26,5 @@ $(function() {
 		$(".alert").fadeOut(function() { $(this).remove(); });
 	}, 3000);
 
-	$("#publish-date-raw").keyup(function () {
-		var field = $(this), hidden = $("#publish-date");
-		if (Date.parse(field.val())) {
-			hidden.val(Date.parse(field.val()));
-			field.parent().parent().removeClass("error").addClass("success");
-		} else {
-			hidden.val("");
-			field.parent().parent().removeClass("success").addClass("error");
-		}
-	});
+	$("[data-date-field]").dateField();
 });

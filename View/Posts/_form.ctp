@@ -21,17 +21,19 @@
 		)); ?>
 	</div>
 	<div class="span4">
-		<?php echo $this->Form->input("publish_date", array(
-			"type" => "hidden",
-			"id" => "publish-date"
-		)); ?>
-		<?php echo $this->TwitterBootstrap->input('publish_date_raw', array(
-			"input" => $this->Form->text("publis_date_raw", array(
-				"id" => "publish-date-raw",
-				"value" => $this->Form->value("publish_date")
-			)),
-			"label" => "Publish Date"
-		)); ?>
+		<div class="control-group" data-date-field>
+			<?php echo $this->Form->input("publish_date", array(
+				"type" => "hidden",
+				"id" => "publish-date"
+			)); ?>
+			<label for="publish-date-raw">Publish Date</label>
+			<div class="controls">
+				<?php echo $this->Form->text("publis_date_raw", array(
+					"id" => "publish-date-raw",
+					"value" => $this->Form->value("publish_date")
+				)); ?>
+			</div>
+		</div>
 	</div>
 	<div class="span4">
 		<?php echo $this->TwitterBootstrap->input('is_published'); ?>
