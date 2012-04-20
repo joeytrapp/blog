@@ -45,7 +45,7 @@ class PostDecorator extends AppDecorator {
 	 * @return string
 	 */
 	public function description() {
-		return substr(strip_tags($this->toHtml()), 0, 300) . '...';
+		return substr(strip_tags($this->toHtml()), 0, 600) . '...';
 	}
 
 }

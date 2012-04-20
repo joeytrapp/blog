@@ -4163,3 +4163,9 @@ textarea.post-content {
   opacity: 1;
   filter: alpha(opacity=100);
 }
+.pager {
+  margin-top: 30px;
+}
+.pager a {
+  text-decoration: none;
+}

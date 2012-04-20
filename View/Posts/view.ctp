@@ -1,4 +1,3 @@
-
 <?php $this->set('title_for_layout', h($post->title())); ?>
 <article>
 	<div class="page-header clearfix">

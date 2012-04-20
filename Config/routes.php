@@ -25,6 +25,7 @@
 	Router::connect('/login', array('controller' => 'users', 'action' => 'login'));
 	Router::connect('/logout', array('controller' => 'users', 'action' => 'logout'));
 	Router::connect('/posts', array('controller' => 'posts', 'action' => 'index'));
+	Router::connect('/posts/index/*', array('controller' => 'posts', 'action' => 'index'));
 	Router::connect('/posts/add', array('controller' => 'posts', 'action' => 'add'));
 	Router::connect('/posts/edit/*', array('controller' => 'posts', 'action' => 'edit'));
 	Router::connect('/posts/delete/*', array('controller' => 'posts', 'action' => 'delete'));

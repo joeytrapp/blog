@@ -60,7 +60,7 @@ class PostsController extends AppController {
 				'Post.is_published' => 1
 			);
 		}
-		$paginate['limit'] = 9999;
+		$paginate['limit'] = 5;
 		$this->paginate = array_merge(
 			$paginate,
 			array('order' => array(
