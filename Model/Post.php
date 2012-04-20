@@ -58,7 +58,8 @@ class Post extends AppModel {
 				'Post.is_published' => 1
 			),
 			'order' => array(
-				'Post.publish_date' => 'DESC'
+				'Post.publish_date' => 'DESC',
+				'Post.created' => 'DESC'
 			),
 			'limit' => $limit
 		));
