@@ -12,7 +12,8 @@
 				<?php echo $this->TwitterBootstrap->button_link(
 					__('Delete'),
 					array('action' => 'delete', $post->id()),
-					array("style" => "danger", "size" => "small")
+					array("style" => "danger", "size" => "small"),
+					__("Are you sure?")
 				); ?>
 			</div>
 		<?php endif; ?>
