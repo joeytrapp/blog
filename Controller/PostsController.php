@@ -63,7 +63,10 @@ class PostsController extends AppController {
 		$paginate['limit'] = 9999;
 		$this->paginate = array_merge(
 			$paginate,
-			array('order' => array('Post.publish_date' => 'DESC'))
+			array('order' => array(
+				'Post.publish_date' => 'DESC',
+				'Post.created' => 'DESC'
+			))
 		);
 		$posts = $this->Decorator->build("Post", $this->paginate());
 		$this->set(compact('posts'));

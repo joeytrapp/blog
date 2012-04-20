@@ -1,8 +1,16 @@
 <div class="row">
-	<div class="span12">
+	<div class="span8">
 		<?php echo $this->TwitterBootstrap->input('title', array(
 			'placeholder' => 'Post Title',
-			'class' => 'span10'
+			'class' => 'span8'
+		)); ?>
+	</div>
+	<div class="span4">
+		<?php echo $this->TwitterBootstrap->input('parent_id', array(
+			"input" => $this->Form->select("parent_id", $parents, array(
+				'empty' => 'No previous post'
+			)),
+			'label' => 'Previous Post',
 		)); ?>
 	</div>
 </div>
@@ -13,27 +21,20 @@
 		)); ?>
 	</div>
 	<div class="span4">
-		<?php echo $this->Form->input('publish_date', array(
-			"type" => "text"
+		<?php echo $this->Form->input("publish_date", array(
+			"type" => "hidden",
+			"id" => "publish-date"
 		)); ?>
-	</div>
-	<div class="span4">
-		<?php echo $this->Form->input('is_published', array(
-			'div' => false
-		)); ?>
-	</div>
-</div>
-<div class="row">
-	<div class="span4">
-		<?php echo $this->TwitterBootstrap->input('parent_id', array(
-			"input" => $this->Form->select("parent_id", $parents, array(
-				'empty' => 'No previous post'
+		<?php echo $this->TwitterBootstrap->input('publish_date_raw', array(
+			"input" => $this->Form->text("publis_date_raw", array(
+				"id" => "publish-date-raw",
+				"value" => $this->Form->value("publish_date")
 			)),
-			'label' => 'Previous Post',
+			"label" => "Publish Date"
 		)); ?>
 	</div>
 	<div class="span4">
-		<?php echo $this->Form->input('user_id'); ?>
+		<?php echo $this->TwitterBootstrap->input('is_published'); ?>
 	</div>
 </div>
 <div class="row">
